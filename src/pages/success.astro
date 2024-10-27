@@ -26,8 +26,8 @@ const translations: Translations = {
   },
   de: {
     pageTitle: `Page Not Found | ${SITE.title}`,
-    subTitle: "Oops, diese Seite existiert nicht!",
-    content: "Packen wir es wieder von vorne an",
+    subTitle: "Wir melden uns in Kürze zurück",
+    content: "Wir leiten Sie zur Startseite zurück",
     btnTitle: "Zur Startseite",
   }
 };
@@ -45,7 +45,7 @@ const { pageTitle, subTitle, content, btnTitle } = translations[lang];
     <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
       <div class="mx-auto max-w-screen-sm text-center">
         <h1 class="text-dark mb-4 text-7xl font-extrabold text-blue-500 dark:text-blue-400 lg:text-9xl">
-          404
+          DANKE
         </h1>
         <p id="subtitle" class="mb-4 text-balance text-3xl font-bold tracking-tight text-neutral-700 dark:text-neutral-300 md:text-4xl">
           {subTitle}
@@ -65,4 +65,9 @@ const { pageTitle, subTitle, content, btnTitle } = translations[lang];
   document.getElementById("go-back")?.addEventListener("click", () => {
     window.location.href = '/'
   });
+
+  setTimeout(()=>{
+    window.location.href = '/'
+  }, 7000)
+
 </script>
