@@ -1,22 +1,22 @@
 [
   {
-    "heading": "Dedicated Teams",
-    "content": "Benefit from our committed teams who ensure your success is personal. Count on expert guidance and exceptional results throughout your project journey.",
+    "heading": "Bauleitung",
+    "content": "Wir bieten Ihnen eine zuverlässige Bauleitung mit klarer Koordination und sorgfältiger Qualitätskontrolle. So bleibt Ihr Projekt von Anfang bis Ende in besten Händen. Vertrauen Sie auf eine reibungslose Abwicklung und transparente Kommunikation.",
     "svg": "groups"
   },
   {
-    "heading": "Simplicity and Affordability",
+    "heading": "Bauleistungen",
     "content": "Find easy-to-use, affordable solutions with ScrewFast's line of tools and equipment. Our products make procurement simple and keep projects within budget.",
-    "svg": "verified"
+    "svg": "house"
   },
   {
-    "heading": "Comprehensive Documentation",
+    "heading": "Beratung",
     "content": "Integrate with ease using ScrewFast's exhaustive guides and libraries. Achieve seamless product adoption with our full suite of documentation designed for your success.",
     "svg": "books"
   },
   {
-    "heading": "User-Centric Design",
+    "heading": "Garten & Landschaftsbau",
     "content": "Experience the difference with ScrewFast's user-focused design — where functionality meets practicality for an enhanced work experience.",
-    "svg": "frame"
+    "svg": "tree"
   }
 ]

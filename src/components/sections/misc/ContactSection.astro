@@ -7,8 +7,7 @@ import EmailContactInput from "@components/ui/forms/input/EmailContactInput.astr
 import PhoneInput from "@components/ui/forms/input/PhoneInput.astro";
 import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
 import Icon from "@components/ui/icons/Icon.astro";
-import FormKey from "@data/web3form.json"
-
+import Web3Form from "@data/web3form.json";
 
 // Define the variables that will be used in this component
 const title: string = "Kontakt";
@@ -42,70 +41,103 @@ const formSubTitle: string =
         </h2>
         <!-- Form for user input with various input fields.-->
         <!-- Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)-->
-        <form action="https://api.web3forms.com/submit" method="POST">
-        <!-- <form onsubmit="test" id="contact-form"></form> -->
-        <input
-          type="hidden"
-          name="access_key"
-          value={FormKey.key}
-        />
-        <div class="grid gap-4">
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <TextInput
-              id="hs-firstname-contacts"
-              label="First Name"
-              name="hs-firstname-contacts"
-            />
-            <TextInput
-              id="hs-lastname-contacts"
-              label="Last Name"
-              name="hs-firstname-contacts"
+        <form
+          
+          method="POST"
+          id="contact-form"
+        >
+          <input type="hidden" name="access_key" value={Web3Form.key} id="web3"/>
+  
+          <div class="grid gap-4">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <TextInput
+                id="hs-firstname-contacts"
+                label="Vorname"
+                name="hs-firstname-contacts"
+              />
+              <TextInput
+                id="hs-lastname-contacts"
+                label="Nachname"
+                name="hs-firstname-contacts"
+              />
+            </div>
+            <EmailContactInput id="hs-email-contacts" label="E-Mail" />
+            <PhoneInput id="hs-phone-number" label="Telefon" />
+            <TextAreaInput
+              id="hs-about-contacts"
+              label="Details"
+              name="hs-about-contacts"
             />
           </div>
-          <EmailContactInput id="hs-email-contacts" />
-          <PhoneInput id="hs-phone-number" />
-          <TextAreaInput
-            id="hs-about-contacts"
-            label="Details"
-            name="hs-about-contacts"
-          />
-        </div>
 
-        <div class="mt-4 grid">
-          <AuthBtn title="Anfrage Versenden" />
-        </div>
+          <div class="mt-4 grid">
+            <AuthBtn title="Anfrage Versenden" />
+          </div>
 
-        <div class="mt-3 text-center">
-          <p class="text-sm text-neutral-600 dark:text-neutral-400">
-            {formSubTitle}
-          </p>
-        </div>
+          <div class="mt-3 text-center">
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+              {formSubTitle}
+            </p>
+          </div>
+        </form>
       </div>
-    </div>
 
-    <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
-    <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
-      <ContactIconBlock heading="Telefon" content="+49 157 36766187"
-        ><Icon name="chatBubble" />
-      </ContactIconBlock>
+      <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
+      <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
+        <ContactIconBlock heading="Telefon" content="+49 157 36766187"
+          ><Icon name="chatBubble" />
+        </ContactIconBlock>
 
-      <ContactIconBlock
-        heading="Büro"
-        content="Hauptstraße 24a"
-        isAddressVisible={true}
-        addressContent="D-04617 Kriebitzsch"
-        ><Icon name="mapPin" />
-      </ContactIconBlock>
+        <ContactIconBlock
+          heading="Büro"
+          content="Hauptstraße 26"
+          isAddressVisible={true}
+          addressContent="D-04617 Kriebitzsch"
+          ><Icon name="mapPin" />
+        </ContactIconBlock>
 
-      <ContactIconBlock
-        heading="E-Mail"
-        isLinkVisible={true}
-        linkTitle="info@eichhornbau.de"
-        linkURL="#"
-        ><Icon name="envelopeOpen" />
-      </ContactIconBlock>
+        <ContactIconBlock
+          heading="E-Mail"
+          isLinkVisible={true}
+          linkTitle="info@eichhornbau.de"
+          linkURL="#"
+          ><Icon name="envelopeOpen" />
+        </ContactIconBlock>
+      </div>
     </div>
   </div>
 </section>
 
+<script is:inline>
+  // Function to handle form submission
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault();
 
+      const formData = {
+        Vorname: document.getElementById("hs-firstname-contacts").value,
+        Nachname: document.getElementById("hs-lastname-contacts").value,
+        "E-Mail": document.getElementById("hs-email-contacts").value,
+        Telefon: document.getElementById("hs-phone-number").value,
+        Details: document.getElementById("hs-about-contacts").value,
+        access_key: document.getElementById("web3").value,
+      };
+      try {
+        let res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (res.status < 399){
+          window.location.href = '/success'
+        }
+
+      } catch (err) {
+        console.log(err)
+      }
+    });
+</script>
