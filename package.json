@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "deploy": "npm run build && npx wrangler login && npx wrangler pages deploy dist",
+    "deploy": "npm run build && npx wrangler login && npx wrangler pages deploy dist --branch master",
     "start": "astro dev",
     "build": "astro check && astro build && node process-html.mjs",
     "preview": "astro preview",

@@ -14,7 +14,7 @@ import heroImage from "@images/hero-image.avif";
 import something from "@images/eb_main_house.png"
 import faqs from "@data/faqs.json";
 import features from "@data/features.json";
-import pricing from "@data/pricing.json";
+import planning from "@images/planning.jpg";
 import featureImage from "@images/features-image.avif";
 import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
@@ -29,11 +29,11 @@ const avatarSrcs: Array<string> = [
 ---
 
 <MainLayout>
-  <AnnouncementBanner
+  <!-- <AnnouncementBanner
     btnId="dismiss-button"
     btnTitle="Explore ScrewFast on GitHub"
     url="https://github.com/mearashadowfax/ScrewFast"
-  />
+  /> -->
 
   <HeroSection
     title=`<span class="text-blue-500 dark:text-blue-300">Eichhorn</span> Bau- & Baumanagement`
@@ -56,13 +56,21 @@ const avatarSrcs: Array<string> = [
     subTitle="Experience the reliability chosen by industry giants."
   /> -->
 
-  <FeaturesGeneral
+  <!-- <FeaturesGeneral
     title=`Ihre Erwartungen, unsere <span class="text-blue-400 dark:text-blue-200">Grundsätze</span>`
     subTitle="Das können Sie von uns erwarten"
     src={featureImage}
     alt="Eichhornbau principles in floating boxes"
     features={features}
-  />
+  /> -->
+  <FeaturesGeneral
+  title=`Ihre Erwartungen, unsere <span class="text-blue-400 dark:text-blue-200">Grundsätze</span>`
+  subTitle="Das können Sie von uns erwarten"
+ 
+  alt="Eichhornbau principles in floating boxes"
+  features={features}
+/>
+
 
   <FeaturesNavs
     title=`Unsere <span class="text-blue-400 dark:text-blue-200">Leistungen</span> im Schnellüberblick`
@@ -72,25 +80,25 @@ const avatarSrcs: Array<string> = [
         content:
           "Wir bieten Ihnen eine zuverlässige Bauleitung mit klarer Koordination und sorgfältiger Qualitätskontrolle. So bleibt Ihr Projekt von Anfang bis Ende in besten Händen. Vertrauen Sie auf eine reibungslose Abwicklung und transparente Kommunikation.",
         svg: "groups",
-        src: tools,
+        src: planning,
         alt: "Yellow and black heavy equipment on brown grass field",
         first: true,
       },
       {
         heading: "Bauleistung",
         content:
-          "Navigate with ease using ScrewFast's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
+          "Wir setzen Ihr Projekt mit Fachkompetenz und Engagement um. Von der fachgerechten Planung bis zur fertigen Umsetzung kümmern wir uns um Ihr Bauanliegen",
         svg: "dashboard",
-        src: dashboard,
+        src: construction,
         alt: "A screenshot or graphic representation of the intuitive dashboard",
-        second: true,
+        second: false,
       },
       {
-        heading: "Garten & Landschaftsbau",
+        heading: "Erdbau",
         content:
-          "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
+          "Wir schaffen die Grundlage für Ihr Bauprojekt. Mit präziser Anpassung der Bodenbeschaffenheit und sorgfältiger Bauvorbereitung legen wir den Grundstein für sichere und langlebige Bauwerke. Ob Bodenaushub, Geländeprofilierung oder Verdichtungsarbeiten wir sorgen für eine fachgerechte Durchführung.",
         svg: "tree",
-        src: construction,
+        src: tools,
         alt: "Gray metal building frame near tower crane during daytime",
       },
     ]}
