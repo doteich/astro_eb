@@ -10,8 +10,8 @@ const footerLinks = [
   {
     section: "Weitere Informationen",
     links: [
-      { name: "Impressum", url: "/welcome-to-docs/" },
-      { name: "Datenschutz", url: "/products" }
+      { name: "Impressum", url: "/impressum" },
+      { name: "Datenschutz", url: "/dataprotection" }
       
     ],
   },

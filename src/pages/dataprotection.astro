@@ -1,0 +1,137 @@
+---
+// Import section components
+import MainLayout from "@/layouts/MainLayout.astro";
+import { SITE } from "@data/constants";
+import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
+
+// Define types for translations
+type TranslationKeys = "en" | "de";
+type Translations = {
+    [key in TranslationKeys]: {
+        pageTitle: string;
+    };
+};
+
+interface Entry {
+    head: string;
+    paragraph: string;
+}
+
+const entries: Entry[] = [
+    {
+        head: "Allgemein",
+        paragraph: `Personenbezogene Daten (nachfolgend zumeist nur „Daten“ genannt) werden von uns nur im Rahmen der Erforderlichkeit sowie zum Zwecke der Bereitstellung eines funktionsfähigen und nutzerfreundlichen Internetauftritts, inklusive seiner Inhalte und der dort angebotenen Leistungen, verarbeitet.
+                    <br>
+                    Gemäß Art. 4 Ziffer 1. der Verordnung (EU) 2016/679, also der Datenschutz-Grundverordnung (nachfolgend nur „DSGVO“ genannt), gilt als „Verarbeitung“ jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführter Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten, wie das Erheben, das Erfassen, die Organisation, das Ordnen, die Speicherung, die Anpassung oder Veränderung, das Auslesen, das Abfragen, die Verwendung, die Offenlegung durch Übermittlung, Verbreitung oder eine andere Form der Bereitstellung, den Abgleich oder die Verknüpfung, die Einschränkung, das Löschen oder die Vernichtung.
+                    <br>
+                    Mit der nachfolgenden Datenschutzerklärung informieren wir Sie insbesondere über Art, Umfang, Zweck, Dauer und Rechtsgrundlage der Verarbeitung personenbezogener Daten, soweit wir entweder allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung entscheiden. Zudem informieren wir Sie nachfolgend über die von uns zu Optimierungszwecken sowie zur Steigerung der Nutzungsqualität eingesetzten Fremdkomponenten, soweit hierdurch Dritte Daten in wiederum eigener Verantwortung verarbeiten.
+                    <br>
+                    Unsere Datenschutzerklärung ist wie folgt gegliedert:
+                    <br>
+                    <b>I. Informationen über uns als Verantwortliche</b> <br>
+                    <b>II. Rechte der Nutzer und Betroffenen</b> <br>
+                    <b>III. Informationen zur Datenverarbeitung </b>`,
+    },
+    {
+        head: "I. Informationen über uns als Verantwortliche",
+        paragraph: `Verantwortlicher Anbieter dieses Internetauftritts im datenschutzrechtlichen Sinne ist: <br>
+                Eichhorn Bau- & Baumanagement <br>
+                Ralf Eichhorn <br>
+                Hauptstr. 26 <br>
+                04617 Kriebitzsch <br>
+                Telefon: +4915736766187 <br>
+                E-Mail: info@eichhornbau.de`,
+    },
+    {
+        head: "II. Rechte der Nutzer und Betroffenen",
+        paragraph: `Mit Blick auf die nachfolgend noch näher beschriebene Datenverarbeitung haben die Nutzer und Betroffenen das Recht
+                    <ul class="mb-4 text-balance text-xl tracking-tight text-neutral-800 dark:text-neutral-200" style="list-style-type: circle">
+                        <li> auf Bestätigung, ob sie betreffende Daten verarbeitet werden, auf Auskunft über die verarbeiteten Daten, auf weitere Informationen über die Datenverarbeitung sowie auf Kopien der Daten (vgl. auch Art. 15 DSGVO);</li>
+                        <li> auf Berichtigung oder Vervollständigung unrichtiger bzw. unvollständiger Daten (vgl. auch Art. 16 DSGVO);</li>
+                        <li> auf unverzügliche Löschung der sie betreffenden Daten (vgl. auch Art. 17 DSGVO), oder, alternativ, soweit eine weitere Verarbeitung gemäß Art. 17 Abs. 3 DSGVO erforderlich ist, auf Einschränkung der Verarbeitung nach Maßgabe von Art. 18 DSGVO;</li>
+                        <li> auf Erhalt der sie betreffenden und von ihnen bereitgestellten Daten und auf Übermittlung dieser Daten an andere Anbieter/Verantwortliche (vgl. auch Art. 20 DSGVO);</li>
+                        <li> auf Beschwerde gegenüber der Aufsichtsbehörde, sofern sie der Ansicht sind, dass die sie betreffenden Daten durch den Anbieter unter Verstoß gegen datenschutzrechtliche Bestimmungen verarbeitet werden (vgl. auch Art. 77 DSGVO).</li>
+                    </ul> <br>
+                    <span class="mb-4 text-balance text-xl tracking-tight text-neutral-800 dark:text-neutral-200"> Darüber hinaus ist der Anbieter dazu verpflichtet, alle Empfänger, denen gegenüber Daten durch den Anbieter offengelegt worden sind, über jedwede Berichtigung oder Löschung von Daten oder die Einschränkung der Verarbeitung, die aufgrund der Artikel 16, 17 Abs. 1, 18 DSGVO erfolgt, zu unterrichten. Diese Verpflichtung besteht jedoch nicht, soweit diese Mitteilung unmöglich oder mit einem unverhältnismäßigen Aufwand verbunden ist. Unbeschadet dessen hat der Nutzer ein Recht auf Auskunft über diese Empfänger. <br>
+                    Ebenfalls haben die Nutzer und Betroffenen nach Art. 21 DSGVO das Recht auf Widerspruch gegen die künftige Verarbeitung der sie betreffenden Daten, sofern die Daten durch den Anbieter nach Maßgabe von Art. 6 Abs. 1 lit. f) DSGVO verarbeitet werden. Insbesondere ist ein Widerspruch gegen die Datenverarbeitung zum Zwecke der Direktwerbung statthaft.
+                    </span>
+                    
+                    `,
+    },
+    {
+        head: "III. Informationen zur Datenverarbeitung",
+        paragraph: `Ihre bei Nutzung unseres Internetauftritts verarbeiteten Daten werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt, der Löschung der Daten keine gesetzlichen Aufbewahrungspflichten entgegenstehen und nachfolgend keine anderslautenden Angaben zu einzelnen Verarbeitungsverfahren gemacht werden.
+            `,
+    },
+    {
+        head: "Kontaktanfragen / Kontaktmöglichkeit",
+        paragraph: `Sofern Sie per Kontaktformular oder E-Mail mit uns in Kontakt treten, werden die dabei von Ihnen angegebenen Daten zur Bearbeitung Ihrer Anfrage genutzt. Die Angabe der Daten ist zur Bearbeitung und Beantwortung Ihre Anfrage erforderlich – ohne deren Bereitstellung können wir Ihre Anfrage nicht oder allenfalls eingeschränkt beantworten.
+                    Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b) DSGVO.
+                    Ihre Daten werden gelöscht, sofern Ihre Anfrage abschließend beantwortet worden ist und der Löschung keine gesetzlichen Aufbewahrungspflichten entgegenstehen, wie bspw. bei einer sich etwaig anschließenden Vertragsabwicklung.
+                    `,
+    },
+    {
+        head: "CloudFlare",
+        paragraph: `Zur Absicherung unseres Internetauftritts sowie zur Optimierung der Ladezeiten setzen wir den Dienst CloudFlare als sog. CDN (Content-Delivery-Network) ein. Es handelt sich hierbei um einen Dienst der Cloudflare Inc., 101 Townsend Street, San Francisco, California 94107, USA, nachfolgend nur „CloudFlare“ genannt.
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f) DSGVO. Unser berechtigtes Interesse liegt in dem sicheren Betrieb unseres Internetauftritts sowie in dessen Optimierung.
+                    Sofern Sie unseren Internetauftritt aufrufen, werden Ihre Anfragen über den Server von CloudFlare geleitet.
+                    `,
+    },
+];
+
+// Define variables for page content
+const defaultLang: TranslationKeys = "de";
+const translations: Translations = {
+    en: {
+        pageTitle: `Datenschutzerklärung | ${SITE.title}`,
+    },
+    de: {
+        pageTitle: `Datenschutzerklärung | ${SITE.title}`,
+    },
+};
+
+// Determine language from the URL
+const urlPath = Astro.url.pathname;
+const langCodeMatch = urlPath.match(/^\/(en|de)\//);
+const lang: TranslationKeys = langCodeMatch
+    ? (langCodeMatch[1] as TranslationKeys)
+    : defaultLang;
+
+const { pageTitle } = translations[lang];
+---
+
+<MainLayout title={pageTitle}>
+    <section class="grid place-content-start px-4 py-8 lg:px-6 lg:py-16">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
+            <h1
+                class="mb-4 text-balance py-2 text-5xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+            >
+                Datenschutzerklärung
+            </h1>
+
+            {
+                entries.map((entry) => {
+                    return (
+                        <div class="mb-1 px-4 py-2">
+                            <h2 class="mb-4 text-balance text-3xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200">
+                                {entry.head}
+                            </h2>
+                            <p
+                                class="mb-4 text-balance text-xl tracking-tight text-neutral-800 dark:text-neutral-200"
+                                set:html={entry.paragraph}
+                            />
+                        </div>
+                    );
+                })
+            }
+        </div>
+    </section>
+</MainLayout>
+
+<!-- JavaScript code to handle going back to the previous page -->
+<script is:inline>
+    document.getElementById("go-back")?.addEventListener("click", () => {
+        window.location.href = "/";
+    });
+</script>

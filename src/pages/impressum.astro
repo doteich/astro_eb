@@ -1,0 +1,103 @@
+---
+// Import section components
+import MainLayout from "@/layouts/MainLayout.astro";
+import { SITE } from "@data/constants";
+import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
+
+// Define types for translations
+type TranslationKeys = "en" | "de";
+type Translations = {
+    [key in TranslationKeys]: {
+        pageTitle: string;
+    };
+};
+
+interface Entry {
+    head: string;
+    paragraph: string;
+}
+
+const entries: Entry[] = [
+    {
+        head: "Angaben gemäß § 5 TMG",
+        paragraph:
+            "Eichhorn Bau- & Baumanagement - Hauptstraße 26 - 04617 Kriebitzsch",
+    },
+    {
+        head: "Vertreten durch",
+        paragraph:
+            `Ralf Eichhorn <br> Telefon: +4915736766187, E-Mail: info@eichhornbau.de`,
+    },
+    {
+        head: "Streitschlichtung",
+        paragraph:
+            `Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a style='color:#2A78FF' href='http://ec.europa.eu/consumers/odr'> Link</a>
+            <br>
+            Meine E-Mail-Adresse finden Sie oben im Impressum.
+            Ich bin nicht bereit oder verpflichtet, an Streitbeteiligungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+`,
+    },
+    {
+        head: "Haftungsausschluss (Disclaimer)",
+        paragraph:
+            `Als Diensteanbieter bin Ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin Ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden solche Inhalte umgehend entfernen. 
+            <br>
+            <br>
+            Die Website enthält Links zu externen Webseiten Dritter, auf deren Inhalte Ich keinen Einfluss habe. Deshalb werden für diese fremden Inhalte auch keine Gewähr übernommen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.
+            `,
+    },
+];
+
+// Define variables for page content
+const defaultLang: TranslationKeys = "de";
+const translations: Translations = {
+    en: {
+        pageTitle: `Impressum | ${SITE.title}`,
+    },
+    de: {
+        pageTitle: `Impressum | ${SITE.title}`,
+    },
+};
+
+// Determine language from the URL
+const urlPath = Astro.url.pathname;
+const langCodeMatch = urlPath.match(/^\/(en|de)\//);
+const lang: TranslationKeys = langCodeMatch
+    ? (langCodeMatch[1] as TranslationKeys)
+    : defaultLang;
+
+const { pageTitle } = translations[lang];
+---
+
+<MainLayout title={pageTitle}>
+    <section class="grid  place-content-start px-4 py-8 lg:px-6 lg:py-16" >
+        <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
+            <h1
+                class="mb-4 text-balance text-5xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200 py-2"
+            >
+                Impressum
+            </h1>
+
+            {
+                entries.map((entry) => {
+                    return <div class="mb-1 px-4 py-2">
+                        <h2 class="mb-4 text-balance text-3xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200">
+                            {entry.head}
+                        </h2>
+                        <p class="mb-4 text-balance text-xl tracking-tight text-neutral-800 dark:text-neutral-200" set:html={entry.paragraph}>
+                            
+                        </p>
+                    </div>;
+                })
+            }
+        </div>
+    </section>
+</MainLayout>
+
+<!-- JavaScript code to handle going back to the previous page -->
+<script is:inline>
+    document.getElementById("go-back")?.addEventListener("click", () => {
+        window.location.href = "/";
+    });
+</script>

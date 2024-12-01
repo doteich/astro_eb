@@ -74,15 +74,15 @@ export const Icons = {
       },
     ],
     class:
-      "h-6 w-6 flex-shrink-0 text-neutral-700 hs-tab-active:text-blue-400 dark:text-neutral-300 dark:hs-tab-active:text-blue-300 md:h-7 md:w-7",
-    width: 24,
-    height: 24,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    strokeWidth: "1.5",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    stroke: "#0955b3",
+      "h-6 w-6 flex-shrink-0 stroke-neutral-700 hs-tab-active:stroke-blue-400 dark:stroke-neutral-300 dark:hs-tab-active:stroke-blue-300 md:h-7 md:w-7",
+      width: 24,
+      height: 24,
+      viewBox: "0 0 25 24",
+      fill: "none",
+      strokeWidth: "1.0",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      
   },
   brilliance: {
     paths: [
