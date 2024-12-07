@@ -5,15 +5,16 @@ import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
 import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
+import FeaturesTimeline from "@/components/sections/features/FeaturesTimeline.astro";
 
 // Import necessary images
 import blueprints from "@images/blueprints-image.avif";
 import personWorking from "@images/person-working.avif";
 import beforeAfter from "@images/before-after.avif";
 import constructionWorkers from "@images/construction-workers.avif";
-import aerialView from "@images/aerial-view.avif";
-import usingTools from "@images/using-tools.avif";
-import progressBuilding from "@images/progress-building.avif";
+
+import excavator1 from "@images/excavator1.jpg";
+import excavator2 from "@images/excavator2.jpg";
 import underConstruction from "@images/under-construction.avif";
 import { SITE } from "@data/constants";
 
@@ -36,59 +37,35 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Delivering Expert Guidance",
+    title: "Bauleitung",
     subTitle:
-      "Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations.",
+      "Das Management eines Bauprojekts kann überwältigend sein. Mit unseren professionellen Beratungsdiensten begleiten wir Sie durch jede Phase und stellen sicher, dass Sie fundierte Entscheidungen treffen. Egal, ob Sie ein Heimwerker oder ein erfahrener Bauunternehmer sind, wir bieten Ihnen eine maßgeschneiderte Leitung Ihres Bauvorhabens an. Zusammen mit Ihnen planen wir den Bauablauf, koordinieren Dienstleister und stimmen uns mit dem Bauträger ab. Bei Problemstellungen stehen wir Ihnen beratend zur Verfügung.",
     single: false,
     imgOne: blueprints,
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
-    imgTwo: personWorking,
-    imgTwoAlt: "Person working in the office",
-  },
-  {
-    isRightSection: false,
-    title: "Transforming Designs into Reality",
-    subTitle:
-      "Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, ScrewFast offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory.",
-    img: beforeAfter,
-    imgAlt: "Construction site before and after",
-    btnExists: true,
-    btnTitle: "Learn More",
-    btnURL: "#",
-  },
-  {
-    isRightSection: true,
-    title: "Navigating Projects with Professional Oversight",
-    subTitle:
-      "Effective project management is at the heart of any successful build. ScrewFast provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.",
-    single: false,
-    imgOne: constructionWorkers,
-    imgOneAlt: "Construction workers orchestrating a project",
-    imgTwo: aerialView,
-    imgTwoAlt: "Aerial view of managed construction",
-  },
-  {
-    isRightSection: false,
-    title: "Ensuring Long-lasting Performance",
-    subTitle:
-      "Our commitment to your project doesn't end at completion. ScrewFast offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support.",
-    img: usingTools,
-    imgAlt:
-      "Man in orange and black vest wearing white helmet holding yellow and black power tool",
-  },
-  {
-    isRightSection: true,
-    title: "Crafting Bespoke Strategies for Unique Challenges",
-    subTitle:
-      "For our larger enterprise clients, ScrewFast offers custom solutions designed to meet specific industry challenges. By understanding your unique needs, we engineer tailored strategies aimed at optimizing your operations, enhancing efficiency, and driving your business forward.",
-    single: false,
-    imgOne: progressBuilding,
-    imgOneAlt: "In progress building structure",
     imgTwo: underConstruction,
     imgTwoAlt: "Brown and gray building under construction",
-    btnExists: true,
-    btnTitle: "Read more",
-    btnURL: "#",
+  },
+  {
+    isRightSection: false,
+    title: "Bauleistung",
+    subTitle:
+      "Neben der Planung von Bauprojekten, setzen wir diese auch erfolgreich um. Von kleineren Installationen bis hin zu umfangreichen Bauarbeiten bietet Eichhornbau zuverlässige Baudienstleistungen an, um Ihre Pläne in greifbare Ergebnisse zu verwandeln. Unser Spezialgebiet ist der Beton- und Erdbau. Dazu zählen die Betonierung von Boden- und Deckenelementen, die Planung und Verbau von Schalung, betonieren von Fundamenten und generelle Ausbesserungsarbeiten. Sprechen Sie uns für Ihr konkretes Anliegen direkt an.",
+    img: beforeAfter,
+    imgAlt: "Construction site before and after",
+    btnExists: false,
+    btnTitle: "Learn More",
+  },
+  {
+    isRightSection: true,
+    title: "Erdbauarbeiten",
+    subTitle:
+      "Wir unterstützen Sie, damit ihr Bauvorhaben auf solidem Grund steht. Vom Aushub für ein Wohnhaus, die Geländeanpassung für Gewerbeflächen oder die Vorbereitung von Baugrund wir haben das Know-How und die technischen Fähigkeiten es umzusetzen. Konkret bieten wir Bagger- und Planierarbeiten für Ihr Infrastrukturprojekt an. Sprechen Sie uns an bringen den Boden in Bewegung!",
+    single: false,
+    imgOne: excavator1,
+    imgOneAlt: "Construction workers orchestrating a project",
+    imgTwo: excavator2,
+    imgTwoAlt: "Aerial view of managed construction",
   },
 ];
 
@@ -101,25 +78,27 @@ const pageTitle: string = `Services | ${SITE.title}`;
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://screwfast.uk/services",
-    "url": "https://screwfast.uk/services",
-    "name": "Expert Consultation Services | ScrewFast",
-    "description": "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
-    "isPartOf": {
-        "@type": "WebSite",
-        "url": "https://screwfast.uk",
-        "name": "ScrewFast",
-        "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
+    url: "https://screwfast.uk/services",
+    name: "Expert Consultation Services | ScrewFast",
+    description:
+      "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://screwfast.uk",
+      name: "ScrewFast",
+      description:
+        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
     },
-    "inLanguage": "en-US"
+    inLanguage: "en-US",
   }}
 >
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
-    title="Uniting Expertise with Your Vision"
-    subTitle="At ScrewFast, we take pride in providing comprehensive solutions and exceptional service in the hardware and construction industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
+    title="Verbinden Sie unsere Expertise mit Ihrer Vision"
+    subTitle="Mit über 30 Jahren Erfahrung in der Baubranche sind wir der richtige Ansprechpartner für Ihr Bauanliegen. Ob Großprojekt oder persönliches Vorhaben, wir unterstützen Sie. Überzeugen Sie sich untenstehend von unserem Dienstleistungsportfolio."
     btnExists={true}
-    btnTitle="Schedule a Consultation"
-    btnURL="#"
+    btnTitle="Kontaktieren Sie uns"
+    btnURL="/contact"
   />
   <!-- RightSection and LeftSection contain details about various services along with pertinent imagery.
   They alternate for variety in design.
@@ -130,7 +109,7 @@ const pageTitle: string = `Services | ${SITE.title}`;
   If 'single' is true, it displays one image, otherwise it displays two.
   -->
   {
-    articles.map(article => {
+    articles.map((article) => {
       return article.isRightSection ? (
         <RightSection
           title={article.title}
@@ -157,24 +136,37 @@ const pageTitle: string = `Services | ${SITE.title}`;
       );
     })
   }
-  <!--FeaturesStats section showcases essential stats valuable to users-->
-  <FeaturesStats
-    title="By the Numbers"
-    subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
-    mainStatTitle="96%"
-    mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
-    stats={[
+ 
+
+
+  <FeaturesTimeline
+  title="Ihr Anliegen, unser Vorgehen"
+  subTitle="Unsere Dienstleistungen haben Sie überzeugt? Sie planen eine Anfrage über die Website oder E-Mail an uns zu stellen? Damit ihr individuelles Vorhaben gleich von Anfang bestens Betreut wird, sieht ein typischer Vorplanungsprozess bei uns so aus."
+    events={[
       {
-        stat: "99.8%",
-        description: "project completion rate",
+        heading: "Vorbereitung",
+        content: "Auf Basis Ihrer Anfrage stecken wir zunächst grob die Parameter ab, um uns mit einer fundierten Schätzung innerhalb von wenigen Werktagen bei Ihnen zu melden. ",
+        svg: "envelope"
       },
       {
-        stat: "5,000+",
-        description: "successful installations",
+        heading: "Vorbesprechung",
+        content: "Wir besprechen mit Ihnen die Details Ihres Anliegens, planen weitere Schritte und stellen Rückfragen.",
+        svg: "chatbubble"
       },
       {
-        stat: "85%",
-        description: "client growth year-over-year",
+        heading: "Feinplanung",
+        content: "Der persönliche Kontakt ist uns wichtig. Wir schauen uns mit Ihnen gemeinsam das Bauvorhaben an und klären Feinheiten, um Ihnen ein präzises Angebot zu stellen.",
+        svg: "magification"
+      },
+      {
+        heading: "Angebot",
+        content: "Wir stellen Ihnen ein sauber aufgeschlüsseltes Angebot. Dazu zählen einen Mengengerüst und eine Baukalkulation.",
+        svg: "pen"
+      },
+      {
+        heading: "Umsetzung",
+        content: "Wir setzen den Plan in die Tat um. Im Bauverlauf nehmen wir Sie mit und besprechen wichtige Entscheidungen und Meilensteine mit Ihnen.",
+        svg: "home"
       },
     ]}
   />

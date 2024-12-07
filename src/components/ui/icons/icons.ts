@@ -75,14 +75,14 @@ export const Icons = {
     ],
     class:
       "h-6 w-6 flex-shrink-0 stroke-neutral-700 hs-tab-active:stroke-blue-400 dark:stroke-neutral-300 dark:hs-tab-active:stroke-blue-300 md:h-7 md:w-7",
-      width: 24,
-      height: 24,
-      viewBox: "0 0 25 24",
-      fill: "none",
-      strokeWidth: "1.0",
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-      
+    width: 24,
+    height: 24,
+    viewBox: "0 0 25 24",
+    fill: "none",
+    strokeWidth: "1.0",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+
   },
   brilliance: {
     paths: [
@@ -95,6 +95,94 @@ export const Icons = {
     width: 24,
     height: 24,
     viewBox: "0 0 17 16",
+    fill: "none",
+    strokeWidth: "1.0",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+
+  },
+  magification: {
+    paths: [
+      {
+        d: "M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0",
+      },
+    ],
+    class:
+      "mt-2 h-6 w-6 flex-shrink-0 fill-blue-400 hs-tab-active:fill-blue-400 dark:fill-neutral-300 dark:hs-tab-active:fill-blue-300 md:h-7 md:w-7",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 16 20",
+    fill: "none",
+    strokeWidth: "1.0",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+
+  },
+  home: {
+    paths: [
+      {
+        d: "M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z",
+      },
+    ],
+    class:
+      "mt-2 h-6 w-6 flex-shrink-0 fill-blue-400 hs-tab-active:fill-blue-400 dark:fill-neutral-300 dark:hs-tab-active:fill-blue-300 md:h-7 md:w-7",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 16 20",
+    fill: "none",
+    strokeWidth: "1.0",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+
+  },
+  chatbubble: {
+    paths: [
+      {
+        d: "M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2",
+      },
+      {
+        d: "m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"
+      }
+    ],
+    class:
+      "mt-2 h-6 w-6 flex-shrink-0 fill-blue-400 hs-tab-active:fill-blue-400 dark:fill-neutral-300 dark:hs-tab-active:fill-blue-300 md:h-7 md:w-7",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 16 18",
+    fill: "none",
+    strokeWidth: "1.0",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+
+  },
+  pen: {
+    paths: [
+      {
+        d: "m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z",
+      },
+    ],
+    class:
+      "mt-2 h-6 w-6 flex-shrink-0 fill-blue-400 hs-tab-active:fill-blue-400 dark:fill-neutral-300 dark:hs-tab-active:fill-blue-300 md:h-7 md:w-7",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 16 20",
+    fill: "none",
+    strokeWidth: "1.0",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+
+  },
+  envelope: {
+    paths: [
+      {
+        d: "M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882zM15 7.383l-4.778 2.867L15 13.117zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765z",
+      },
+    ],
+    class:
+      "mt-2 h-6 w-6 flex-shrink-0 fill-blue-400 hs-tab-active:fill-blue-400 dark:fill-neutral-300 dark:hs-tab-active:fill-blue-300 md:h-7 md:w-7",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 16 20",
     fill: "none",
     strokeWidth: "1.0",
     strokeLinecap: "round",
@@ -128,7 +216,7 @@ export const Icons = {
       "mt-2 h-6 w-6 flex-shrink-0 fill-blue-400 hs-tab-active:fill-blue-400 dark:fill-neutral-300 dark:hs-tab-active:fill-blue-300 md:h-7 md:w-7",
     width: 24,
     height: 24,
-    viewBox: "0 0 17 16",
+    viewBox: "0 0 18 18",
     fill: "none",
     strokeWidth: "1.0",
     strokeLinecap: "round",
@@ -515,13 +603,13 @@ export const Icons = {
         d: "M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25",
       },
     ],
-    class: "mt-1 size-5 flex-shrink-0",
-    viewBox: "0 0 24 24",
+    class: "mt-2 h-6 w-6 flex-shrink-0 fill-blue-400 hs-tab-active:fill-blue-400 dark:fill-neutral-300 dark:hs-tab-active:fill-blue-300 md:h-7 md:w-7",
+    viewBox: "0 0 26 26",
     fill: "none",
     strokeWidth: "1.5",
     strokeLinecap: "round",
     strokeLinejoin: "round",
-    stroke: "currentColor",
+
   },
   puzzle: {
     paths: [

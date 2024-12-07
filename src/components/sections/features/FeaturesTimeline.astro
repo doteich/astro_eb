@@ -1,0 +1,66 @@
+---
+import Icon from "@components/ui/icons/Icon.astro";
+
+const { title, subTitle, events } = Astro.props;
+
+interface Event {
+    heading: string;
+    content: string;
+    svg: string
+}
+
+interface Props {
+    title?: string;
+    subTitle?: string;
+    events?: Event[];
+    src?: any;
+    alt?: string;
+}
+---
+
+<section
+    class="mx-auto flex flex-col items-center px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+    <h2
+        class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+    >
+        {title}
+    </h2>
+    <p
+        class="mb-5 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-xl"
+    >
+        {subTitle}
+    </p>
+    <div class="mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+        <ol class="relative border-s border-black dark:border-gray-700">
+            {
+                events?.map((e) => {
+                    return (
+                        <li class="mb-10 ms-6">
+                            <span class="absolute -start-5 flex h-10 w-10 items-start justify-center rounded-full bg-white  dark:bg-blue-400 dark:ring-gray-900">
+                                {/* <svg
+                                    class="text-blue-800 h-2.5 w-2.5 dark:text-blue-300"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="white"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg> */}
+                            <Icon name={e.svg} />
+
+                            </span>
+                            <h3 class="text-balance px-4 text-2xl font-extrabold tracking-tight text-blue-400 dark:text-blue-300">
+                                {e.heading}
+                            </h3>
+
+                            <p class="mb-5 max-w-prose text-pretty px-4 font-light text-neutral-600 dark:text-neutral-400 sm:text-xl">
+                                {e.content}
+                            </p>
+                        </li>
+                    );
+                })
+            }
+        </ol>
+    </div>
+</section>
