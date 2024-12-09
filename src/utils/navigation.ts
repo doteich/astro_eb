@@ -2,7 +2,7 @@
 const navBarLinks = [
   { name: "Start", url: "/" },
   { name: "Dienstleistungen", url: "/services" },
-  { name: "Unternehmen", url: "/blog" },
+  { name: "Unternehmen", url: "/company" },
   { name: "Kontakt", url: "/contact" },
 ];
 // An array of links for footer

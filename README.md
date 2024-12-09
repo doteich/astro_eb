@@ -452,7 +452,7 @@ To customize SEO settings, modify the values in the `constants.ts` file. Key con
 // constants.ts
 
 export const SITE = {
-  title: "ScrewFast",
+  title: "Eichhornbau",
   // Other SITE properties...
 };
 
@@ -519,8 +519,8 @@ Structured data in JSON-LD format can be managed by the `Meta.astro` component, 
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "ScrewFast",
-    "url": "https://screwfast.uk",
+    "name": "Eichhornbau",
+    "url": "https://eichhornbau.de",
     "description": "Discover top-quality hardware tools and services"
   }}
 >
